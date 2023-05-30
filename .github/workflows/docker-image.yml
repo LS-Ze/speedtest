@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag adolfintel/speedtest
+      run: docker run -e MODE=frontend -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="qinqi000316" -v $(pwd)/servers.json:/servers.json -p 80:80 -it adolfintel/speedtest
